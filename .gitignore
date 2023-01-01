@@ -4,3 +4,7 @@
 *.tfstate.*
 crash.log
 *.tfvars
+
+**/node_modules/
+*.swp
+
