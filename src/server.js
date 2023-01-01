@@ -17,19 +17,22 @@ app.set('views', path.join(__dirname, 'views'));
 //app.use(favicon(__dirname + '/static/img/favicon.ico'));
 app.set('view engine', 'ejs');
 
+// TODO: add same 404 logic from brendanbeckcom
+app.get('/', (req, res) => {
+    res.render('pages/index.ejs');
+});
+
+// TODO: make /json/* return the json parsed file in pages
 app.use('/json', mds.middleware({
-    rootDirectory: path.resolve(__dirname, 'views/markdownsrc'),
+    rootDirectory: path.resolve(__dirname, 'views/pages'),
 }));
 
-
+// TODO: right now, markdown.ejs has to be in /views
 app.use(mds.middleware({
-    rootDirectory: path.resolve(__dirname, 'views/markdownsrc'),
+    rootDirectory: path.resolve(__dirname, 'views/pages'),
     view: 'markdown'
 }));
 
-//app.get('/', (req, res) => {
-//    res.send('hello world');
-//});
 
 
 app.listen(PORT, HOST, () => {
