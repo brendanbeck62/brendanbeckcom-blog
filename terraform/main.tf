@@ -6,12 +6,13 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = "bbcom-blog-remote-state"
+    bucket         = "356960567614-us-west-2-remote-state"
     encrypt        = true
-    dynamodb_table = "bbcom-blog-remote-state-lock"
-    key            = "terraform.tfstate"
+    dynamodb_table = "356960567614-us-west-2-remote-state-lock"
+    key            = "bbcom/ecs-blog.tfstate"
     region         = "us-west-2"
   }
+
 }
 
 provider "aws" {
